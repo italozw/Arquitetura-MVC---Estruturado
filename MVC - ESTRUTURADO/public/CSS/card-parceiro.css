@@ -1,0 +1,127 @@
+.area-de-cards{
+    background-color: var(--cor-fundo-claro);
+}
+
+
+.container-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-parceiros{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background-color: var(--cor-fundo-claro);
+    width: 95%;
+    height: 95%;
+    padding: 14px;
+    justify-content: center;
+    gap: 40px;
+    border-radius: 10px;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    height: 350px;
+    background-color: var(--cor-fundo-escuro);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.AREA-DADOS-CARD{
+    height: 300px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.area-img{
+    height: 180px;
+    width: 180px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.img-parceiro{
+    width: 100%;
+    border-radius: 10%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle{
+    display: flex;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--cor-branco);
+    border-radius: 50%;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: end;
+    justify-content: center;
+    padding-bottom:10px;
+}
+.circle > img{
+    width: 70%;
+}
+
+
+.nome-parceiro{
+    color: var(--cor-fundo-claro);
+    font-weight: normal;
+    word-break: break-word;
+    text-align: center;
+    width: 180px;
+    padding: 10px;
+}
+
+.area-parceiro{
+    word-break: break-word;
+    text-align: center;
+    font-weight: normal;
+    font-size: small;
+    width: 180px;
+    color: var(--cor-fundo-claro);
+    padding: 10px;
+}
+
+.area-media{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 145px;
+    margin-bottom: 5px;
+}
+
+.area-media a{
+    color: var(--cor-branco);
+    font-size: 28px;
+    transition: 0.3s;
+}
+
+.area-media a:hover{
+    color: var(--cor-Amarelo);
+    transform: scale(1.1);
+}
+
+@media (max-width: 780px) {
+    .card-parceiros{
+        width: 80%;
+    }
+}
+

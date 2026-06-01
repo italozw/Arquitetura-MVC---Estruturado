@@ -1,0 +1,242 @@
+.container-login {
+    display: flex;
+    overflow: hidden;
+}
+
+/* A tela de login é dividida em duas partes, a esquerda, que é composta pela logo e a arte triângular, e a direita, que é composta pela formulário de login   */
+
+/* Parte esquerda da tela de login */
+.area-style-login {
+    width: 58%;
+    height: 100%;
+    display: flex;
+    background-color: var(--cor-fundo-escuro);
+
+    & .area-foto-login {
+        height: 100%;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .logo-login {
+            width: 26rem;
+            height: 13rem;
+            margin-left: 20%;
+
+            & img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    & .area-design-login {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        position: relative;
+        overflow: visible;
+
+        & .triangulo-login {
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            transform: translateY(-50%);
+        
+            width: 0;
+            height: 0;
+        
+            border-top: 55vh solid transparent;
+            border-bottom: 55vh solid transparent;
+            border-right: 360px solid var(--cor-Rosa);
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -53vh;
+                left: 15px;
+            
+                width: 0;
+                height: 0;
+            
+                border-top: 53vh solid transparent;
+                border-bottom: 53vh solid transparent;
+                border-right: 350px solid var(--cor-fundo-claro);
+            }
+        }
+    }
+}
+
+/* Parte direita da tela de login */
+.area-cadastro-login {
+    width: 42%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-fundo-escuro);
+    & .form-login{
+        width: 28rem;
+        height: 25rem;
+        display: flex;
+        flex-direction: column;
+        & .textos-login{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            & h2{
+                font-size: 5rem;
+                font-weight: 850;
+            }
+            & h1{
+                font-size: 2.5rem;
+                transform: translateY(-1.5rem);
+            }
+            & .texto-login{
+                text-align: center;
+                font-size: .9rem;
+                top: -5rem;
+                transform: translateY(-1.5rem);
+            }
+        }
+        & .inputs-login{
+            width: 100%;
+            display: flex;
+            flex-direction: column;        
+            gap: 1.5rem; 
+            
+            & .input-login{
+                position: relative;
+                & input{
+                    width:100%;
+                    height: 3rem;
+                    font-size: 1.2rem;
+                    border-radius: 20px;
+                    padding: 0.8rem 3.5rem 0.8rem 1.5rem; 
+                    background-color: var(--cor-fundo-claro);
+                    border: 1px solid var(--cor-fundo-escuro);
+                    &:focus{
+                        color:var(--cor-fundo-escuro);
+                        border: none;
+                        outline: 2px solid var(--cor-borda-placeholder);
+                    }
+                }
+                & .user-icon-login{
+                    position: absolute;
+                    font-size: 1.5rem;
+                    pointer-events: none;
+                    right: 20px;
+                    top: 50%;
+                    color: var(--cor-placeholder);
+                    transform: translateY(-50%);
+                }
+                & .eye-icon-login{
+                    position: absolute;
+                    font-size: 1.8rem;
+                    cursor: pointer;
+                    right: 20px;
+                    top: 50%;
+                    color: var(--cor-placeholder);
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        & .acoes-login{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .3rem 1rem 0rem 1rem;
+/* =========================== Configurações da checkbox personalizada =========================== */
+            & .acoes-box-login .box-check-login{
+                position: relative;
+                & label{
+                    background-color: var(--cor-fundo-claro);
+                    border: 1px solid var(--cor-fundo-escuro);
+                    border-radius: 15%;
+                    cursor: pointer;
+                    height: 12px;
+                    width: 12px;
+                    display: block;
+                    &:hover{
+                        border: 1px solid var(--cor-link);
+                    }
+                    &:after {
+                        border: 2px solid var(--cor-branco);
+                        border-top: none;
+                        border-right: none;
+                        content: "";
+                        height: 2px;
+                        left: 1px;
+                        opacity: 0;
+                        position: absolute;
+                        top: 3px;
+                        transform: rotate(-45deg);
+                        width: 8px;
+                    }
+                }
+                & input[type="checkbox"]{
+                    visibility: hidden;
+                    display: none;
+                    opacity: 0;
+                    &:checked + label{
+                        background-color: var(--cor-link);
+                        border-color: var(--cor-link);
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+/* =========================== Fim das configurações da checkbox personalizada =========================== */
+            & #lembrar-login{
+                position: relative;
+                right: 16%;
+            }
+        }
+        & .a-login{
+            color: var(--cor-link);
+        }
+        & .cadastre-se-login{
+            display: flex;
+            justify-content: end;
+            padding-right: 1rem;
+        }
+        & .botao-login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: .5rem;
+            & .btn-login{
+                width: 13rem;
+                height: 2rem;
+                font-size: 1.5rem;
+                border-radius: 15px;
+                font-weight: 650;
+                border:none;
+                background-color:var(--cor-fundo-escuro);
+                color: var(--cor-branco);
+                cursor: pointer;
+                &:hover{
+                    color: var(--cor-fundo-escuro);
+                    background-color: var(--cor-fundo-claro);
+                    border: .1rem solid var(--cor-fundo-escuro);
+                }
+            }
+        }
+    }
+}
+
+/* Recurso de acessibilidade */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

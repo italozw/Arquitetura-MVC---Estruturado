@@ -1,0 +1,251 @@
+/* =========================================================
+   RESPONSIVO — Menu Lateral (max-width: 1023px)
+========================================================= */
+
+@media screen and (max-width: 1023px) {
+
+    /* Layout raiz */
+    .Fundo-Menu {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* =====================================================
+       SIDEBAR — Menu lateral mobile
+    ===================================================== */
+
+    /* Menu oculto por padrão no mobile */
+    .Menu-Lateral {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        z-index: 200;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        padding-left: 20px;
+    }
+
+    /* Menu aberto no mobile */
+    .Menu-Lateral.aberto {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    /* Container quando menu fechado no mobile */
+    .Menu-Lateral.fechado ~ .main-container-menu {
+        flex: 1;
+        width: 100%;
+    }
+
+    /* Overlay escuro atrás do menu */
+    .overlay-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 150;
+    }
+
+    .overlay-menu.aberto {
+        display: block;
+    }
+
+    /* Logo reduzido */
+    .logo-menu {
+        width: 140px;
+        margin-bottom: 40px;
+    }
+
+    /* Opção ativa no mobile */
+    .caixa-opcao-menu.active {
+        width: calc(100% + 20px);
+        margin-left: -20px;
+        padding-left: 20px;
+        border-radius: 40px 0 0 40px;
+    }
+
+    /* Sem curvas decorativas no mobile */
+    .caixa-opcao-menu.active::before,
+    .caixa-opcao-menu.active::after {
+        display: none;
+    }
+
+    /* Área do ícone */
+    .area-icone-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+    }
+
+    /* Divisor */
+    .barrinha-menu {
+        width: calc(100% - 20px);
+        margin-top: 20px;
+    }
+
+    /* Botão sair */
+    .sair-menu {
+        font-size: 16px;
+        margin-right: 0;
+        margin-bottom: 30px;
+        gap: 8px;
+    }
+
+    /* Botão toggle oculto no mobile */
+    #open_btn_menu {
+        display: none;
+    }
+
+    /* =====================================================
+       CONTEÚDO PRINCIPAL — Mobile
+    ===================================================== */
+
+    .main-container-menu {
+        width: 100% !important;
+        max-width: 100vw;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .area-trabalho-menu {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-color: var(--cor-fundo-claro);
+        border-radius: 0;
+        z-index: 99;
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       TOPBAR — Mobile
+    ===================================================== */
+
+    .superior-menu {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 12px;
+        background-color: var(--cor-fundo-escuro);
+    }
+
+    /* Botão hamburger visível no mobile */
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .hamburger-menu span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Título */
+    .titulo-menu {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+    }
+
+    .titulo-page-menu {
+        font-size: 1.5rem;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Ícones da topbar */
+    .icone-topo-menu svg {
+        display: flex;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .icone-pesquisa-menu svg {
+        font-size: .2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* =====================================================
+       TOPBAR — Pesquisa (colapsada no mobile)
+    ===================================================== */
+
+    .conteiner-pesquisar-menu {
+        display: flex;
+        width: 34px;
+        height: 34px;
+        background-color: transparent;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        padding-left: 0;
+    }
+
+    .input-pesquisar-menu {
+        width: 0;
+        height: 0;
+        border: none;
+        outline: none;
+        background: none;
+    }
+
+    .icone-pesquisa-menu path {
+        fill: var(--cor-fundo-claro);
+        margin-top: 5px;
+    }
+
+    .input-pesquisar-menu::placeholder {
+        font-size: 0;
+    }
+
+    /* =====================================================
+       TOPBAR — Perfil (compacto no mobile)
+    ===================================================== */
+
+    .perfil-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-left: auto;
+        width: 28%;
+    }
+
+    .container-foto-menu {
+        color: var(--cor-fundo-claro);
+        font-size: 1.9rem;
+    }
+
+    /* Textos do perfil ocultos no mobile */
+    .texto-perfil-menu {
+        display: none;
+    }
+
+    .notificacao-menu {
+        font-size: 1rem;
+        color: var(--cor-fundo-claro);
+    }
+
+}

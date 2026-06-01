@@ -1,0 +1,110 @@
+@import url("style.css");
+.body-ata{
+  width: 100%;
+  height: 100%;
+  
+  background-color: var(--cor-fundo-claro);
+}
+.adm-nav-ataa {
+  display: flex;
+  justify-content: space-between;
+  height: 96px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  /* gap: 20px; */
+  background-color: var(--cor-fundo-escuro);
+}
+
+.adm-nav-ataa-h1 {
+  text-align: right;
+  margin: 0;
+  color: white;
+}
+
+.adm-nav-ataa-barra {
+  display: flex;
+  border-radius: 20px;
+  width: 50%;
+  height: 10px;
+  border: none;
+  padding: 30px;
+
+}
+.container-cards-ata {
+    display: flex;              
+    justify-content: flex-end; 
+    gap: 20px;                  
+    padding: 20px;
+}
+.card-ata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    height: 377px;
+    text-align: center;
+    background-color: var(--cor-fundo-claro);
+    border-radius: 20px;
+    border: 1px solid black;
+    /* padding: 10px; */
+    /* align-items: center; */
+}
+.card-ata h3{
+  display: flex;
+  width: 850px;
+  height: 45px;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-branco);
+  border-radius: 20px 20px 0px 0px;
+}
+.button01-ata{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+
+
+}
+.solicitar-ata{
+  width: 218px;
+  height: 38px;
+  background-color: rgba(163, 163, 163, 0.521);
+  font-size: 24px;
+  border-radius: 10px;
+  color: var(--cor-branco);
+  cursor: pointer;
+  border: none;
+
+
+}
+.questionario-ata{
+  width: 218px;
+  height: 38px;
+  background-color: var(--cor-fundo-escuro);
+  border-radius: 10px;
+  font-size: 24px;
+  color: var(--cor-branco);
+  cursor: pointer;
+  border: none;
+}
+.dropdown-ata{
+  position: relative;
+}
+.dropbtn-ata{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-color: aquamarine;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+

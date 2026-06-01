@@ -1,0 +1,668 @@
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Urbanist', sans-serif;
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    /* ─────────────────────────────────────────────
+       BOTÃO DE ABERTURA
+    ───────────────────────────────────────────── */
+    .trigger-btn {
+      padding: 14px 28px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      background: #2F3C54;
+      color: #E6EFFF;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .trigger-btn:hover { background: #253248; }
+
+    /* ─────────────────────────────────────────────
+       OVERLAY
+    ───────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+    }
+    .modal-overlay.show { display: flex; }
+
+    /* ─────────────────────────────────────────────
+       MODAL
+    ───────────────────────────────────────────── */
+    .modal {
+      width: 100%;
+      max-width: 1407px;
+      max-height: 96vh;
+      background: #2F3C54;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ─────────────────────────────────────────────
+       HEADER
+    ───────────────────────────────────────────── */
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-title h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #E6EFFF;
+      line-height: 1.2;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+    .close-btn:hover { opacity: 0.7; }
+
+    /* ─────────────────────────────────────────────
+       CONTEÚDO DO MODAL
+    ───────────────────────────────────────────── */
+    .modal-content {
+      background: #E6EFFF;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      padding: 24px 20px;
+    }
+
+    /* ─────────────────────────────────────────────
+       STEPPER
+    ───────────────────────────────────────────── */
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .step-circle.active   { background: #2F3C54; }
+    .step-circle.inactive { background: #9A9A9A; }
+
+    .step-label {
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .step-label.active   { color: #2F3C54; }
+    .step-label.inactive { color: #9A9A9A; }
+
+    .step-line {
+      width: 80px;
+      border-top: 1px solid #272727;
+      margin: 0 12px;
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       SUBTÍTULO
+    ───────────────────────────────────────────── */
+    .subtitle {
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      color: #B6ADAD;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       FORMULÁRIO
+    ───────────────────────────────────────────── */
+    #startupForm {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* ─────────────────────────────────────────────
+       COLUNAS — Desktop: 3, Tablet: 2, Mobile: 1
+    ───────────────────────────────────────────── */
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      flex: 1;
+    }
+
+    /* ─────────────────────────────────────────────
+       CARD (cada coluna)
+    ───────────────────────────────────────────── */
+    .card {
+      background: #FCFCFE;
+      border-radius: 8px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card-title h2 {
+      font-weight: 700;
+      font-size: 22px;
+      color: #2F3C54;
+      line-height: 1.2;
+    }
+
+    .card-divider {
+      border: none;
+      border-top: 1px solid #c4ccd8;
+      margin-bottom: 16px;
+    }
+
+    /* ─────────────────────────────────────────────
+       SEÇÃO DE FOTO
+    ───────────────────────────────────────────── */
+    .photo-row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .photo-upload {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .avatar-circle {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #E6EFFF;
+      border: 3px solid #2F3C54;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .avatar-circle:hover { border-color: #2B75BF; }
+
+    .avatar-plus {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 24px;
+      height: 24px;
+      background: #2F3C54;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .photo-label {
+      font-weight: 700;
+      font-size: 13px;
+      color: #2F3C54;
+    }
+
+    /* ─────────────────────────────────────────────
+       GRUPOS DE CAMPO
+    ───────────────────────────────────────────── */
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 12px;
+      color: #2F3C54;
+      margin-bottom: 5px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─────────────────────────────────────────────
+       INPUT / SELECT BASE
+    ───────────────────────────────────────────── */
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      height: 38px;
+      background: #F6F6FB;
+      border: 2px solid #2F3C54;
+      border-radius: 5px;
+      padding: 0 12px;
+      font-family: 'Urbanist', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #2F3C54;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input::placeholder {
+      color: #9099A8;
+      font-weight: 500;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #2B75BF;
+      box-shadow: 0 0 0 3px rgba(43, 117, 191, 0.18);
+    }
+
+    /* ─────────────────────────────────────────────
+       INPUT COM ÍCONE — FIX DO BUG DE SOBREPOSIÇÃO
+
+       Problema original: `.input-with-icon svg { fill: #2F3C54 }`
+       forçava fill em todos os SVGs, incluindo os
+       baseados em stroke, gerando manchas sobre o input.
+
+       Solução:
+         1. Cada SVG define suas próprias cores via
+            atributos stroke/fill no markup (não via CSS).
+         2. `pointer-events: none` garante que o ícone
+            não bloqueie cliques no input.
+         3. `padding-left: 40px` no input afasta o texto
+            do ícone com folga suficiente.
+    ───────────────────────────────────────────── */
+    .input-with-icon {
+      position: relative;
+    }
+
+    /* Ícone puramente decorativo — sem herança de fill */
+    .input-with-icon .field-icon {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      pointer-events: none; /* não bloqueia o input */
+      /* Sem fill aqui — cada SVG traz sua cor via atributo */
+    }
+
+    /* Recuo generoso para não sobrepor o ícone */
+    .input-with-icon input {
+      padding-left: 40px;
+    }
+
+    /* ─────────────────────────────────────────────
+       SELECT WRAPPER — seta custom
+    ───────────────────────────────────────────── */
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper select {
+      padding-right: 32px;
+      cursor: pointer;
+    }
+
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #2F3C54;
+      pointer-events: none;
+    }
+
+    /* ─────────────────────────────────────────────
+       SELECT + BOTÃO "+"
+    ───────────────────────────────────────────── */
+    .select-with-plus {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .select-with-plus .select-wrapper {
+      flex: 1;
+    }
+
+    .plus-btn {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      background: #F6F6FB;
+      border: 2px solid #2F3C54;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #2F3C54;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.2s;
+    }
+    .plus-btn:hover { background: #dce8f6; }
+
+    /* ─────────────────────────────────────────────
+       DATA DE FUNDAÇÃO — 3 selects em linha
+    ───────────────────────────────────────────── */
+    .date-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .date-row .select-wrapper {
+      flex: 1;
+    }
+
+    /* ─────────────────────────────────────────────
+       TÍTULO DE SUBSEÇÃO
+    ───────────────────────────────────────────── */
+    .section-title {
+      display: block;
+      font-weight: 700;
+      font-size: 17px;
+      color: #2F3C54;
+      margin-bottom: 10px;
+      margin-top: 8px;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #c4ccd8;
+      margin: 12px 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       TAGS DE ESTÁGIO
+    ───────────────────────────────────────────── */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag-btn {
+      padding: 6px 14px;
+      height: 34px;
+      border: 2px solid #2F3C54;
+      border-radius: 5px;
+      background: transparent;
+      font-family: 'Urbanist', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #2F3C54;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .tag-btn:hover  { background: rgba(47, 60, 84, 0.07); }
+    .tag-btn.active {
+      background: #2B75BF;
+      color: #E6EFFF;
+      border-color: #2B75BF;
+    }
+
+    /* ─────────────────────────────────────────────
+       LISTA DE FUNDADORES
+    ───────────────────────────────────────────── */
+    .founders-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .founder-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F0F4FB;
+      border: 1px solid #c5d3e8;
+      border-radius: 6px;
+      padding: 8px 12px;
+    }
+
+    /* Input interno do fundador — reset das regras globais */
+    .founder-item input {
+      flex: 1;
+      height: 30px !important;
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 1px solid #2F3C54 !important;
+      border-radius: 0 !important;
+      padding: 0 4px !important;
+      box-shadow: none !important;
+    }
+    .founder-item input:focus {
+      border-bottom-color: #2B75BF !important;
+      box-shadow: none !important;
+    }
+
+    .founder-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      font-size: 20px;
+      line-height: 1;
+      padding: 0 2px;
+      flex-shrink: 0;
+      transition: color 0.2s;
+    }
+    .founder-remove:hover { color: #c0392b; }
+
+    .btn-add-founder {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #F6F6FB;
+      border: 2px solid #2F3C54;
+      border-radius: 6px;
+      font-family: 'Urbanist', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #2F3C54;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-add-founder:hover { background: #dce8f6; }
+
+    /* ─────────────────────────────────────────────
+       FEEDBACK DE QUESTIONÁRIO
+    ───────────────────────────────────────────── */
+    .info-box {
+      margin-top: 8px;
+      padding: 10px 14px;
+      background: #EEF5FF;
+      border: 1px dashed #2B75BF;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #2B75BF;
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────────────
+       RODAPÉ DO MODAL
+    ───────────────────────────────────────────── */
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      min-width: 120px;
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 8px;
+      font-family: 'Urbanist', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-cancel {
+      background: transparent;
+      border: 2px solid #2F3C54;
+      color: #2F3C54;
+    }
+    .btn-cancel:hover { background: rgba(47, 60, 84, 0.07); }
+
+    .btn-save {
+      background: #2F3C54;
+      border: 2px solid transparent;
+      color: #fff;
+    }
+    .btn-save:hover { background: #253248; }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVIDADE — TABLET  (< 1100px)
+    ───────────────────────────────────────────── */
+    @media (max-width: 1099px) {
+      .modal { max-height: 94vh; }
+
+      /* 2 colunas; col 3 vai para baixo ocupando largura total */
+      .columns {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .columns .card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .header-title h1 { font-size: 22px; }
+      .step-line { width: 50px; margin: 0 8px; }
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVIDADE — MOBILE  (< 640px)
+    ───────────────────────────────────────────── */
+    @media (max-width: 639px) {
+      body { padding: 0; }
+
+      .modal-overlay { padding: 0; align-items: flex-end; }
+
+      .modal {
+        border-radius: 16px 16px 0 0;
+        max-height: 95dvh;
+        height: 95dvh;
+      }
+
+      .modal-content {
+        margin: 0 10px 10px;
+        padding: 16px 14px;
+        border-radius: 8px;
+      }
+
+      /* 1 coluna */
+      .columns {
+        grid-template-columns: 1fr;
+      }
+      .columns .card:last-child {
+        grid-column: auto;
+      }
+
+      /* Stepper compacto — esconde as linhas divisórias */
+      .step-line  { width: 20px; margin: 0 4px; }
+      .step-label { font-size: 11px; }
+      .step-circle { width: 24px; height: 24px; font-size: 13px; }
+
+      .modal-header { padding: 14px 16px; }
+      .header-title h1 { font-size: 18px; }
+
+      .card { padding: 16px 14px; }
+      .card-title h2 { font-size: 18px; }
+
+      /* Botões de rodapé empilhados */
+      .modal-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+      }
+      .btn { width: 100%; }
+    }

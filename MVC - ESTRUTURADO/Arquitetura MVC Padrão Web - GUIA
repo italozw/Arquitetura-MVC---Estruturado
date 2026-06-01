@@ -1,0 +1,5 @@
+- Em public/: "Aqui fica a porta de entrada pública do servidor. O navegador do cliente lê diretamente o que estiver aqui dentro (CSS, JS e Imagens). IMPORTANTE: Os links de CSS/JS nas páginas Views devem apontar diretamente para 'css/nome.css' ou 'js/nome.js' (sem o prefixo 'public/')."
+- Em Controllers/ ou Models/: "Código estrito de backend. Fica escondido do usuário final por motivos de segurança e desempenho."
+- Em Views/: "Contém apenas as estruturas visuais das páginas em PHP. Elas não fazem consultas diretas ao banco, apenas exibem o que os Controllers enviam."
+
+   "Atenção time: respeite a separação de escopo para evitar conflitos no Git hoje!"

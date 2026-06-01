@@ -1,0 +1,64 @@
+.calendario-ata{
+    width: 1751px;
+    height: 420px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.topo-ata{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.topo-ata button{
+    border: none;
+    background: #2a5298;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.topo-ata button:hover{
+    background: #1e3c72;
+}
+
+.dias-semana-ata{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dias-ata{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 5px;
+}
+
+.dias-ata div{
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dias-ata div:hover{
+    background: #dfe9f3;
+}
+
+.hoje{
+    background: #2a5298;
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,557 @@
+/* =========================================================
+   LAYOUT — Container raiz da página
+========================================================= */
+
+.Fundo-Menu {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cor-fundo-escuro);
+}
+
+/* =========================================================
+   SIDEBAR — Menu lateral de navegação
+========================================================= */
+
+/* Container principal do menu */
+.Menu-Lateral {
+    width: 250px;
+    height: 100%;
+    background-color: var(--cor-fundo-escuro);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 30px;
+    position: relative;
+    transition: width 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+}
+
+/* Menu recolhido (desktop) */
+.Menu-Lateral.fechado {
+    width: 100px;
+    height: 100%;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: width 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+}
+
+
+/* =========================================================
+   SIDEBAR — Logo
+========================================================= */
+
+/* Logo expandido */
+.logo-menu {
+    width: 150px;
+    height: 50px;
+    padding-bottom: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.image-logo-menu {
+    width: 320px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.logo-menu-fechado {
+    width: 170px;
+    height: 30px;
+    
+    opacity: 1;
+    max-width: 170px;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-width 0.3s ease-in-out;
+
+}
+
+/* Oculta logo expandido quando menu fechado */
+.Menu-Lateral.fechado .logo-menu-fechado {
+    opacity: 0;
+    max-width: 0;
+}
+
+.Menu-Lateral.fechado .image-logo-menu {
+    width: 100%;
+    height: 150px;
+}
+
+/* Exibe logo compacto quando menu fechado */
+.Menu-Lateral.fechado .logo-menu {
+    width: 150px;
+    height: 50px;
+    margin-left: 16px;
+}
+
+/* =========================================================
+   SIDEBAR — Navegação
+========================================================= */
+
+/* Container da lista de opções */
+.Nav-Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Cada opção do menu */
+.caixa-opcao-menu {
+    width: 230px;
+    height: 100%;
+    padding: 10px 10px 10px 20px; /* padding-left fixo */
+    gap: 12px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* SEMPRE flex-start */
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Opção do menu quando fechado */
+.Menu-Lateral.fechado .caixa-opcao-menu {
+    width: 80px;
+    justify-content: flex-start;
+}
+
+/* Área do ícone dentro da opção */
+.area-icone-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+
+    min-width: 24px;  
+    flex-shrink: 0;  
+}
+
+/* Ícone SVG da opção */
+.icone-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;       /* tamanho real do SVG, não 50px */
+    min-width: 24px;
+    flex-shrink: 0;
+}
+
+/* Ícone quando menu fechado */
+/* gambiarra no padding-right */
+.Menu-Lateral.fechado .icone-menu {
+    padding-right: 0px; 
+
+}
+
+/* Texto/link da opção */
+.opcao-menu {
+    font-size: 18px;
+    color: var(--cor-fundo-claro);
+    font-weight: 600;
+    display: flex;
+    white-space: nowrap;
+    
+    overflow: hidden;
+    max-width: 200px;
+    opacity: 1;
+    transition: max-width 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* Texto oculto quando menu fechado */
+.Menu-Lateral.fechado .opcao-menu {
+    opacity: 0;
+    max-width: 0;
+
+}
+
+/* =========================================================
+   SIDEBAR — Estado ativo da opção
+========================================================= */
+
+/* Opção selecionada/ativa */
+.caixa-opcao-menu.active {
+    background-color: var(--cor-fundo-claro);
+    width: 100%;
+    border-radius: 80px 0 0 80px;
+    position: relative;
+    cursor: default;
+    padding-left: 20px;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    margin-right: -13px;
+}
+
+.Menu-Lateral.fechado .caixa-opcao-menu.active {
+    width: calc(100% + 0px);
+    padding-left: 20px;
+    padding-right: 40px;
+}
+
+/* Texto e ícones da opção ativa */
+.caixa-opcao-menu.active .opcao-menu,
+.caixa-opcao-menu.active .icone-menu svg path,
+.caixa-opcao-menu.active .icone-menu svg rect {
+    color: var(--cor-fundo-escuro) !important;
+    fill: var(--cor-fundo-escuro) !important;
+    stroke: var(--cor-fundo-escuro) !important;
+}
+
+/* Ícone interno da opção ativa (mentores) */
+.caixa-opcao-menu.active #interno-icone {
+    fill: var(--cor-fundo-claro) !important;
+}
+
+/* Pseudo-elementos para efeito de curva na opção ativa */
+.caixa-opcao-menu::before,
+.caixa-opcao-menu::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    border-radius: 90%;
+    width: 10px;
+    height: 53px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.caixa-opcao-menu.active::before,
+.caixa-opcao-menu.active::after {
+    opacity: 1;
+}
+
+/* Curva superior */
+.caixa-opcao-menu.active::before {
+    top: -12px;
+    right: 11px;
+    height: 11px;
+    transform: rotate(-40deg);
+    border-bottom: 4px solid var(--cor-fundo-claro);
+    width: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Curva inferior */
+.caixa-opcao-menu.active::after {
+    bottom: -12px;
+    right: 11px;
+    height: 11px;
+    transform: rotate(-140deg);
+    border-bottom: 4px solid var(--cor-fundo-claro);
+    width: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Menu-Lateral.fechado .caixa-opcao-menu.active::before {
+    top: -12px;
+    right: 12px;
+    height: 11px;
+    transform: rotate(-40deg);
+    border-bottom: 4px solid var(--cor-fundo-claro);
+    width: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Menu-Lateral.fechado .caixa-opcao-menu.active::after {
+    bottom: -12px;
+    right: 12px;
+    height: 11px;
+    transform: rotate(-140deg);
+    border-bottom: 4px solid var(--cor-fundo-claro);
+    width: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* =========================================================
+   SIDEBAR — Botão toggle (expandir/recolher)
+========================================================= */
+
+#open_btn_menu {
+    top: 25%;
+    right: -15px;
+    transform: translateY(-50%);
+    background-color: var(--cor-Amarelo);
+    color: var(--cor-fundo-escuro);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#open_btn_menu:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ícone seta do botão toggle */
+#open_btn_menu svg {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(180deg);
+}
+
+/* Seta invertida quando menu fechado */
+.Menu-Lateral.fechado #open_btn_menu svg {
+    display: flex;
+    align-items: center;
+    transform: rotate(360deg);
+}
+
+/* =========================================================
+   SIDEBAR — Rodapé (divisor + botão sair)
+========================================================= */
+
+/* Container do rodapé */
+.sair-menu-rodape {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Linha divisória */
+.barrinha-menu {
+    width: 80%;
+    height: 1px;
+    background-color: var(--cor-fundo-claro);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Linha divisória quando menu fechado */
+.Menu-Lateral.fechado .barrinha-menu {
+    width: 80%;
+}
+
+/* Botão sair */
+.sair-menu {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border: none;
+    gap: 10px;
+    background-color: transparent;
+    color: var(--cor-fundo-claro);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 120px;
+    font-family: 'Urbanist', poppins;
+    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out;
+    padding-left: 10px;
+}
+
+/* Botão sair quando menu fechado */
+.Menu-Lateral.fechado .sair-menu {
+    color: transparent;
+}
+
+.sair-menu:hover {
+    opacity: 0.7;
+}
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL — Container + Topbar
+========================================================= */
+
+/* Container principal do conteúdo */
+.main-container-menu {
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Container quando menu fechado */
+.Menu-Lateral.fechado~.main-container-menu {
+    width: calc(100% - 80px);
+}
+
+.area-trabalho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 100%;
+    margin: 0 13px 13px 0; 
+    background-color: var(--cor-fundo-claro);
+    border-radius: 15px;
+    z-index: 99;
+}
+
+.superior-menu {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 90px;
+    justify-content: space-between;
+    background-color: var(--cor-fundo-escuro);
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.Menu-Lateral.fechado~.main-container-menu .superior-menu {
+    left: 100px;
+    width: calc(100% - 100px);
+}
+
+/* Ícone do título na topbar */
+.icone-topo-menu svg {
+    font-size: .2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* Área do título */
+.titulo-menu {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Nome da página */
+.titulo-page-menu {
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   TOPBAR — Pesquisa
+========================================================= */
+
+/* Container do campo de busca */
+.conteiner-pesquisar-menu {
+    display: flex;
+    width: 45%;
+    height: 40px;
+    background-color: aliceblue;
+    border-radius: 24px;
+    align-items: center;
+    padding-left: 10px;
+    gap: 5px;
+}
+
+/* Campo de texto da busca */
+.input-pesquisar-menu {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-family: 'Urbanist', poppins;
+}
+
+/* Ícone de pesquisa */
+.icone-pesquisa-menu {
+    margin-top: 5px;
+}
+
+/* Placeholder da busca */
+.input-pesquisar-menu::placeholder {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cor-botao);
+}
+
+/* =========================================================
+   TOPBAR — Perfil do usuário
+========================================================= */
+
+/* Container do perfil */
+.perfil-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 28%;
+    height: 3rem;
+}
+
+/* Botões de ação (pesquisa, notificação, perfil, seta) */
+.botao-notificacao-menu {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ícone de notificação */
+.notificacao-menu {
+    font-size: 1.5rem;
+}
+
+/* Foto do perfil */
+.container-foto-menu {
+    color: var(--cor-fundo-claro);
+    font-size: 2rem;
+}
+
+/* Textos do perfil */
+.texto-perfil-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nome do usuário */
+.texto-menu {
+    color: var(--cor-fundo-claro);
+    font-size: .9rem;
+}
+
+/* Email do usuário */
+.sub-texto-perfil-menu {
+    color: var(--cor-fundo-claro);
+    font-size: .85rem;
+}
+
+/* =========================================================
+   WORKSPACE — Área de trabalho
+========================================================= */
+
+.area-trabalho {
+    width: 99%;
+    height: calc(100vh - 103px);
+    margin: 0 13px 13px 0;
+    margin-top: 90px;
+    background-color: var(--cor-fundo-claro);
+    border-radius: 15px;
+    z-index: 99;
+
+}
+
+/* =========================================================
+   HAMBURGER — Oculto por padrão (visível apenas no responsivo)
+========================================================= */
+
+.hamburger-menu {
+    display: none;
+}
